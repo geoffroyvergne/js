@@ -1,0 +1,16 @@
+.component-page-header {
+
+}
+
+.docs-primary-header {
+  background: #1c2a7b;
+  padding-left: 20px;
+}
+
+.docs-primary-header h1 {
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0;
+  padding: 50px;
+  color:#ffffff;
+}

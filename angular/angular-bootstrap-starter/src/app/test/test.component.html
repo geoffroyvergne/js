@@ -1,0 +1,69 @@
+
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-addon" (click)="d.toggle()" >
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</form>
+
+<hr/>
+<pre class="card card-block card-header">Model: {{ model | json }}</pre>
+
+<hr />
+<button class="btn btn-default" (click)="showSuccess()">Notification test</button>
+
+<hr />
+<button class="btn btn-default" (click)="toggleLoading()">Spinner test</button>
+
+<br /><br />
+
+<!--<app-spinner *ngIf="loading" ></app-spinner>-->
+
+<hr />
+<button class="btn btn-default" (click)="startLoading()">Slim bar start loading</button>
+<button class="btn btn-default" (click)="stopLoading()">Slim bar stop loading</button>
+<button class="btn btn-default" (click)="completeLoading()">Slim bar complete loading</button>
+
+<hr />
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-default" (click)="open(content)">Launch demo modal</button>
+<pre class="card card-block card-header">{{closeResult}}</pre>
+
+<hr>
+
+<!--<button class="btn btn-default" (click)="loginModal()">Launch login modal</button>-->
+
+<!--<app-auth></app-auth>-->
+
+<div class="col col-lg-10">
+  <ngx-datatable
+    class="bootstrap"
+    [rows]="rows"
+    [columns]="columns"
+  >
+  </ngx-datatable>
+</div>
+
+<br><br>
+
+<ng2-smart-table class="table table-striped" [settings]="settings" [source]="data"></ng2-smart-table>

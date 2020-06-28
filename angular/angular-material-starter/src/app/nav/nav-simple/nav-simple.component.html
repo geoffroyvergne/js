@@ -1,0 +1,32 @@
+<md-toolbar color="primary">
+
+  <a class="navbar-brand" [routerLink]="['/']">
+    <img src="../../assets/images/AngularJS2-small.png" width="150" height="35">
+  </a>
+
+  <div *ngFor="let link of links">
+    <button md-button [routerLink]="[link.route]" *ngIf="authService.haseRole(link.role)">
+      <md-icon>{{ link.icon }}</md-icon>
+      {{ link.label }}
+    </button>
+  </div>
+
+  <span class="example-spacer" style="flex: 1 1 auto;"></span>
+
+  <button md-button (click)="loginModal()" *ngIf="!authService.logged()"><md-icon>account_circle</md-icon>Login</button>
+  <button md-button (click)="logout()" *ngIf="authService.logged()"><md-icon>exit_to_app</md-icon>Logout</button>
+  <button md-button *ngIf="!authService.logged()" [routerLink]="['/register']"><md-icon>exit_to_app</md-icon>Register</button>
+
+  <button md-button [mdMenuTriggerFor]="menuProfil" *ngIf="authService.logged()"><md-icon>person_pin</md-icon>Profil</button>
+  <md-menu #menuProfil="mdMenu">
+    <button md-menu-item>View profil</button>
+    <button md-menu-item>Edit profil</button>
+  </md-menu>
+
+  <button md-button [mdMenuTriggerFor]="menuLang"> <md-icon>flag</md-icon> {{ 'langName' | translate }} </button>
+  <md-menu #menuLang="mdMenu">
+    <button md-menu-item (click)="navService.setLanguage('en')">English</button>
+    <button md-menu-item (click)="navService.setLanguage('fr')">Français</button>
+  </md-menu>
+
+</md-toolbar>

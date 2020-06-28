@@ -1,0 +1,49 @@
+<form (ngSubmit)="onSubmit(userForm.value)" #userForm="ngForm">
+
+  <div class="modal-header">
+    <h4 class="modal-title">Add User</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input type="text" class="form-control" id="login" [(ngModel)]="user.login" name="login" required #login="ngModel">
+
+      <div [hidden]="login.valid || login.pristine"
+           class="alert alert-danger">
+        Login is required
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select class="form-control"  id="role" required [(ngModel)]="user.role" name="role" #role="ngModel">
+        <option *ngFor="let role of roles.rows" [value]="role">{{role}}</option>
+      </select>
+
+      <div [hidden]="role.valid || role.pristine"
+           class="alert alert-danger">
+        Role is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="enabled">
+        <input type="checkbox" name="enabled" id="enabled" [(ngModel)]="user.enabled">
+        Enabled
+      </label>
+    </div>
+    <!--<pre class="card card-block card-header">{{ user | json }}</pre>-->
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-info" [disabled]="!userForm.form.valid || adduserLoading">{{'common.submit' | translate}}</button>
+    <button type="button" class="btn btn-warning" (click)="activeModal.close(false)">{{'common.cancel' | translate}}</button>
+  </div>
+
+</form>

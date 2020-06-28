@@ -1,0 +1,45 @@
+<div [ngClass]="cssClass">
+  <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">
+
+    <div class="modal-header">
+      <h4 class="modal-title">Login
+        <!--<app-spinner *ngIf="isLoading" ></app-spinner>-->
+      </h4>
+      <button *ngIf="isModal" type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" class="form-control" id="login" [(ngModel)]="user.login" name="login" required #login="ngModel" autofocus>
+
+        <div [hidden]="login.valid || login.pristine"
+             class="alert alert-danger">
+          Login is required
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="login">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" required #password="ngModel">
+
+        <div [hidden]="password.valid || password.pristine"
+             class="alert alert-danger">
+          Password is required
+        </div>
+
+      </div>
+      <!--<pre class="card card-block card-header">{{ user | json }}</pre>-->
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-info" [disabled]="!loginForm.form.valid || isLoading">Submit</button>
+      <button *ngIf="isModal" type="button" class="btn btn-warning" (click)="activeModal.close(false)">Cancel</button>
+    </div>
+
+  </form>
+</div>

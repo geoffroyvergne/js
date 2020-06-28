@@ -1,0 +1,23 @@
+{
+    "/api/test": {
+      "target": "http://localhost:8080/apiman-gateway/test-organisation/test-api/1.0",
+      "secure": false
+    }, 
+    "/oauthserver": {
+      "target": "http://localhost:9000",
+      "secure": false
+    },
+    "/oauthclient": {
+      "target": "http://localhost:9001",
+      "secure": false
+    },
+    "/resource": {
+      "target": "http://localhost:9001",
+      "secure": false
+    },
+    "/identity": {
+      "target": "http://localhost:9000",
+      "secure": false
+    }
+  }
+  

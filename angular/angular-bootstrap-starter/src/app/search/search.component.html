@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4>
+    <i class="fa fa-search fa-2x"></i>&nbsp;Search
+  </h4>
+</div>
+
+<div class="modal-body">
+
+  <div *ngFor="let search of searchContainer">
+
+    <!--<pre class="card card-block card-header">{{ searchContainer | json }}</pre>
+    <br />-->
+
+    <div class="jumbotron">
+      <h1 class="display-3">Jumbotron heading {{ search.id }}</h1>
+      <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+    </div>
+
+  </div>
+
+  <div class="container col-sm-4 text-center" style="margin: auto;">
+    <app-spinner *ngIf="loading"></app-spinner>
+  </div>
+
+</div>
+
+<div class="modal-footer"></div>

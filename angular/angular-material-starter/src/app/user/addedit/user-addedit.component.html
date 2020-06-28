@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit(userForm.value)" #userForm="ngForm">
+  <md-card>
+    <md-card-header>
+      <md-card-title>User addEdit {{ user?.login }}</md-card-title>
+    </md-card-header>
+
+    <md-card-content>
+      <section>
+        <md-input-container>
+          <input mdInput placeholder="Login" [(ngModel)]="user.login" name="login" required #login="ngModel">
+        </md-input-container>
+      </section>
+
+      <br />
+
+      <section>
+        <md-select placeholder="Role" [(ngModel)]="user.role" name="role" required #role="ngModel">
+          <md-option *ngFor="let role of roleData.rows" [value]="role">
+            {{role}}
+          </md-option>
+        </md-select>
+      </section>
+
+      <br />
+
+      <section>
+        <md-checkbox [(ngModel)]="user.enabled" name="enabled">Enabled</md-checkbox>
+      </section>
+    </md-card-content>
+
+    <md-card-actions>
+      <button md-raised-button [disabled]="!userForm.form.valid">Submit</button>
+      <button md-raised-button (click)="dialogRef.close(false)">Close</button>
+    </md-card-actions>
+
+    <!--<md-card-content>
+      <pre>{{ user | json }}</pre>
+    </md-card-content>-->
+  </md-card>
+</form>

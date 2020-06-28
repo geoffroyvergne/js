@@ -1,0 +1,10 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>{{ title }} ?</md-card-title>
+  </md-card-header>
+
+  <md-card-actions>
+    <button md-raised-button (click)="dialogRef.close(true)">Yes</button>
+    <button md-raised-button (click)="dialogRef.close(false)">No</button>
+  </md-card-actions>
+</md-card>

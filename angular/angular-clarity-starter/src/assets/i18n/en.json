@@ -1,0 +1,69 @@
+{
+  "locale": "en",
+  "lang": "en",
+  "dateFormat": "MM/dd/yyyy",
+  "langName": "English",
+  "language": "Language",
+  "common": {
+    "submit": "Submit",
+    "reset": "Reset",
+    "back": "Back",
+    "cancel": "Cancel",
+    "close": "Close",
+    "edit": "Edit",
+    "add": "Add",
+    "delete": "Delete",
+    "search": "Search",
+    "details": "Details",
+    "filterBy": "Filter By",
+    "reload": "Reload",
+    "choose": "Choose ...",
+    "id": "#ID",
+    "action": "Action",
+    "confirmDeleteTitle": "Please confirm",
+    "confirmDeleteContent": "Are you sure you want to delete ",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None"
+  },
+  "header": {
+    "home": "Home",
+    "register": "Register",
+    "user": "Users",
+    "debug": "Debug",
+    "config": "Configuration"
+  },
+  "home": {
+    "title": "Base Angular"
+  },
+  "debug": {
+    "index": "Index",
+    "longLoad": "Long Load",
+    "unknown": "Unknown",
+    "echo": "Echo",
+    "ping": "Ping"
+  },
+  "register": {
+    "email": "Email",
+    "emptyEmail": "Empty email",
+    "invalidEmail": "Invalid email",
+    "password": "Password",
+    "emptyPassword": "Empty password",
+    "passwordNotMatch": "Password not match",
+    "passwordAgain": "Password Again",
+    "emptyPasswordAgain": "Empty password again",
+    "birthDate": "Birth Date",
+    "emptyBirthDate": "Empty birth date",
+    "state": "State",
+    "emptyState": "Empty state",
+    "country": "Country",
+    "emptyCountry": "Empty country"
+  },
+  "user": {
+    "login": "Login",
+    "role": "Role",
+    "enabled": "Enabled",
+    "deletedtitle": "Deleted",
+    "deletedmessage": "User {{ name }} deleted {{ message }}"
+  }
+}

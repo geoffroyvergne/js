@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h4 class="modal-title">common.confirmDeleteTitle</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>common.confirmDeleteContent {{ name }} ?</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-info" (click)="activeModal.close(true)">common.yes</button>
+  <button type="button" class="btn btn-warning" (click)="activeModal.close(false)">common.no</button>
+</div>

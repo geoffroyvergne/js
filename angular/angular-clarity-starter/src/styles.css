@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+.dox-header {
+  /*padding: 10px;*/
+  -ms-flex: 0 0 108px;
+  -webkit-box-flex: 0;
+  flex: 0 0 108px;
+  padding-left: 36px;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}

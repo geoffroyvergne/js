@@ -1,0 +1,115 @@
+
+<md-card>
+  <md-input-container>
+    <input
+      mdInput
+      placeholder="Filter on login"
+      name="login" id="login"
+      [(ngModel)]="filter.login"
+      (ngModelChange)="onChangeTable($event)"
+    >
+  </md-input-container>
+
+  <br><br>
+
+  <md-select placeholder="Filter on Role" name="role" [(ngModel)]="filter.role" (ngModelChange)="onChangeTable($event)">
+    <md-option value="">Select ...</md-option>
+    <md-option value="ROLE_USER">ROLE_USER</md-option>
+    <md-option value="ROLE_ADMIN">ROLE_ADMIN</md-option>
+    <md-option value="ROLE_GUEST">ROLE_GUEST</md-option>
+  </md-select>
+
+  <br><br>
+
+  <md-radio-group [(ngModel)]="filter.enabled" name="enabled" (ngModelChange)="onChangeTable($event)">
+    <md-radio-button value="">Select ...</md-radio-button>
+    <md-radio-button value="true">True</md-radio-button>
+    <md-radio-button value="false">False</md-radio-button>
+  </md-radio-group>
+
+  <br><br>
+
+  <button md-raised-button (click)="resetFilter()">Reset</button>
+
+  <!--<p>{{filter | json}}</p>-->
+</md-card>
+
+<br/><br/>
+
+<md-card>
+  <button (click)="addEditUser()" class="mdl-button mdl-js-button mdl-button--fab">
+    <i class="material-icons">add</i>
+  </button>
+
+  <button (click)="getUsers()" class="mdl-button mdl-js-button mdl-button--fab">
+    <i class="material-icons">cached</i>
+  </button>
+
+  <br><br>
+
+  <ngx-datatable
+    style="max-width: 800px"
+    class="material"
+    [rows]="usersDatas?.users?.rows"
+    [columnMode]="'force'"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [externalPaging]="true"
+    [count]="table.totalElements"
+    [offset]="table.page.offset"
+    [limit]="table.page.limit"
+    (page)="onChangeTable($event)"
+    (sort)="onChangeTable($event)">
+
+    <ngx-datatable-column name="Action" sortable="false">
+      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        {{column.name}}
+      </ng-template>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <a style="cursor:pointer" (click)="addEditUser(row)" title="edit"><md-icon>mode_edit</md-icon></a>
+
+        <a style="cursor:pointer" (click)="deleteUser(row)" title="delete"><md-icon>delete</md-icon></a>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Id" prop="id"></ngx-datatable-column>
+    <ngx-datatable-column name="Login" prop="login"></ngx-datatable-column>
+    <ngx-datatable-column name="Role" prop="role"></ngx-datatable-column>
+    <ngx-datatable-column name="Enabled" prop="enabled">
+      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        {{column.name}}
+      </ng-template>
+
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <i [ngClass]="value | boolean"></i>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</md-card>
+
+<br>
+
+
+<!--<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Role</th>
+    <th>Enabled</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of usersDatas?.users?.rows">
+    <td>{{ user.id }}</td>
+    <td>{{ user.login }}</td>
+    <td>{{ user.role }}</td>
+    <td>{{ user.enabled }}</td>
+    <td>
+      <a style="cursor:pointer" (click)="addEditUser(user)" title="edit"><md-icon>mode_edit</md-icon></a>
+      <a style="cursor:pointer" (click)="deleteUser(user)" title="delete"><md-icon>delete</md-icon></a>
+    </td>
+  </tr>
+  </tbody>
+</table>-->

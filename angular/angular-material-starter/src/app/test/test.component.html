@@ -1,0 +1,40 @@
+
+<app-header icone="fa fa-chain fa-2x" title="Test"></app-header>
+
+<md-card>
+  <button md-button (click)="notificationService.success('test', 'test')">Show notification</button>
+</md-card>
+
+<br><br>
+
+<md-card>
+  <md-input-container>
+    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+  </md-input-container>
+  <md-datepicker #picker></md-datepicker>
+</md-card>
+
+<br><br>
+
+<md-card style=" max-width:600px;">
+  <ng2-smart-table
+    [settings]="settings"
+    [source]="data">
+  </ng2-smart-table>
+</md-card>
+
+<br><br>
+
+<md-card style=" max-width:600px;">
+  <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [columns]="columns">
+  </ngx-datatable>
+</md-card>
+
+
+<br><br>
+
+

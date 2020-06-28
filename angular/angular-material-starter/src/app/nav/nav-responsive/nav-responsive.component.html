@@ -1,0 +1,53 @@
+
+<md-sidenav #sidenav mode="side" class="md-sidenav-left md-whiteframe-z2" style="z-index: 99999">
+  <md-toolbar style="cursor:pointer" (click)="sidenav.toggle()" color="primary">
+    <i class="material-icons app-toolbar-menu">menu</i>
+  </md-toolbar>
+
+  <md-list>
+    <md-list-item *ngFor="let link of links">
+      <md-icon md-list-avatar>{{ link.icon }}</md-icon>
+      <button md-button [routerLink]="[link.route]">{{ link.label }}</button>
+    </md-list-item>
+
+    <button md-button [mdMenuTriggerFor]="menu"> <md-icon md-list-avatar>flag</md-icon> {{ 'langName' | translate }} </button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item (click)="navService.setLanguage('en')">English</button>
+      <button md-menu-item (click)="navService.setLanguage('fr')">Français</button>
+    </md-menu>
+  </md-list>
+
+</md-sidenav>
+
+<md-toolbar color="primary">
+
+  <button fxHide="false" fxHide.gt-sm md-button (click)="sidenav.toggle()">
+    <i class="material-icons app-toolbar-menu">menu</i>
+  </button>
+
+  &nbsp;
+
+  <a class="navbar-brand" [routerLink]="['/']" style="z-index: 999999">
+    <img src="../../assets/images/AngularJS2-small.png" width="150" height="35">
+  </a>
+
+  &nbsp;
+
+  <div fxFlex fxShow="false" fxShow.gt-sm>
+    <button md-button *ngFor="let link of links" [routerLink]="[link.route]">
+      <md-icon md-list-avatar>{{ link.icon }}</md-icon>
+      {{ link.label }}
+    </button>
+  </div>
+
+  <span class="app-toolbar-filler"></span>
+  <span class="example-spacer" style="flex: 1 1 auto;"></span>
+
+  <button md-button [mdMenuTriggerFor]="menu" fxFlex fxShow="false" fxShow.gt-sm> <md-icon>flag</md-icon> {{ 'langName' | translate }} </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="navService.setLanguage('en')">English</button>
+    <button md-menu-item (click)="navService.setLanguage('fr')">Français</button>
+  </md-menu>
+
+
+</md-toolbar>

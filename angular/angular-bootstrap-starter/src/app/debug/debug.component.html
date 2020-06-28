@@ -1,0 +1,49 @@
+<div class="modal-header">
+  <h4><i class="fa fa-random fa-2x"></i>&nbsp;{{'header.debug' | translate}}</h4>
+</div>
+
+<div>&nbsp;</div>
+
+<div style="width:500px;">
+
+  <button (click)="getStatusPromise()" [disabled]="statusPromiseLoading" class="btn btn-info">
+    {{'debug.index' | translate}}
+  </button>
+
+  <div>&nbsp;</div>
+
+  <div>
+    <pre class="card card-block card-header">{{ statusPromise | json }}</pre>
+  </div>
+
+  <!--<app-spinner *ngIf="statusPromiseLoading"></app-spinner>-->
+
+  <br>
+
+  <button (click)="getStatusLongLoadPromise()" [disabled]="statusLongLoadPromiseLoading" class="btn btn-info">
+    {{'debug.longLoad' | translate }}
+  </button>
+
+  <div>&nbsp;</div>
+
+  <div>
+    <pre class="card card-block card-header">{{ statusLongLoadPromise | json }}</pre>
+  </div>
+
+  <!--<app-spinner *ngIf="statusLongLoadPromiseLoading"></app-spinner>-->
+
+  <br>
+
+  <button (click)="get404Promise()" [disabled]="status404PromiseLoading" class="btn btn-info">
+    404
+  </button>
+
+  <div>&nbsp;</div>
+
+  <div>
+    <pre class="card card-block card-header">{{ status404Promise | json }}</pre>
+  </div>
+
+  <!--<app-spinner *ngIf="status404PromiseLoading"></app-spinner>-->
+
+</div>

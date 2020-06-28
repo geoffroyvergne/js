@@ -1,0 +1,27 @@
+<app-header icone="fa fa-random fa-2x"title="{{'header.debug' | translate}}"></app-header>
+
+<md-progress-bar [mode]="loadingBarStatus"></md-progress-bar>
+
+<br/>
+
+<md-card>
+
+  <md-card-actions>
+    <button md-raised-button (click)="getStatusPromise()" [disabled]="statusPromiseLoading">Status</button>
+  </md-card-actions>
+  <md-card-content>
+    <pre>{{ statusPromise | json }}</pre>
+  </md-card-content>
+</md-card>
+
+<br/>
+
+<md-card>
+  <md-card-actions>
+    <button md-raised-button (click)="getStatusLongLoadPromise()" [disabled]="statusLongLoadPromiseLoading">Long load</button>
+  </md-card-actions>
+  <md-card-content>
+    <pre>{{ statusLongLoadPromise | json }}</pre>
+  </md-card-content>
+</md-card>
+

@@ -1,0 +1,23 @@
+
+<form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">
+
+  <md-card>
+    <md-card-content>
+      <section>
+        <md-input-container>
+          <input mdInput placeholder="Login" [(ngModel)]="user.login" name="login" required #login="ngModel">
+        </md-input-container>
+
+        <md-input-container>
+          <input mdInput type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required #password="ngModel">
+        </md-input-container>
+      </section>
+    </md-card-content>
+
+    <md-card-actions>
+      <button md-raised-button [disabled]="!loginForm.form.valid">Submit</button>
+      <button md-dialog-close md-raised-button *ngIf="isModal">Close</button>
+    </md-card-actions>
+  </md-card>
+
+</form>

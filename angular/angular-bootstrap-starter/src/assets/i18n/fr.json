@@ -1,0 +1,69 @@
+{
+  "locale": "fr",
+  "lang": "fr",
+  "dateFormat": "dd/MM/yyyy",
+  "langName": "Français",
+  "language": "Langue",
+  "common": {
+    "submit": "Envoyer",
+    "reset": "Effacer",
+    "back": "Retour",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "edit": "Editer",
+    "add": "Ajouter",
+    "delete": "Supprimer",
+    "search": "Rechercher",
+    "details": "Détails",
+    "filterBy": "Filtrer par",
+    "reload": "Recharger",
+    "choose": "Choisir ...",
+    "id": "#ID",
+    "action": "Action",
+    "confirmDeleteTitle": "Merci de confirmer",
+    "confirmDeleteContent": "Etes vous sûre de vouloir supprimer ",
+    "yes": "Oui",
+    "no": "Non",
+    "none": "Vide"
+  },
+  "header": {
+    "home": "Index",
+    "register": "S'enregistrer",
+    "user": "Utilisateurs",
+    "debug": "Debug",
+    "config": "Configuration"
+  },
+  "home": {
+    "title": "Angular Base"
+  },
+  "debug": {
+    "index": "Index",
+    "longLoad": "Chargement Long",
+    "unknown": "Inconnue",
+    "echo": "Echo",
+    "ping": "Ping"
+  },
+  "register": {
+    "email": "Email",
+    "emptyEmail": "Email videl",
+    "invalidEmail": "Email invalide",
+    "password": "Mot de passe",
+    "emptyPassword": "Mot de passe vide",
+    "passwordNotMatch": "Le mot de passe ne correspond pas",
+    "passwordAgain": "Mot de passe encore",
+    "emptyPasswordAgain": "Mot de passe encore vide",
+    "birthDate": "Date de naissance",
+    "emptyBirthDate": "Date de naissance vide",
+    "state": "Etat",
+    "emptyState": "Etat vide",
+    "country": "Pays",
+    "emptyCountry": "Pays vide"
+  },
+  "user": {
+    "login": "Utilisateur",
+    "role": "Role",
+    "enabled": "Activé",
+    "deletedtitle": "Supprimé",
+    "deletedmessage": "Utilisateur {{ name }} supprimé {{ message }}"
+  }
+}

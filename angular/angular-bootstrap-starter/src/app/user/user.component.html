@@ -1,0 +1,57 @@
+<div class="modal-header">
+  <h4>
+    <i class="fa fa-users fa-2x"></i>&nbsp;{{'header.user' | translate}}
+  </h4>
+
+  <button role="button" (click)="addEditUser()" class="btn btn-info">{{'common.add' | translate }}</button>
+  <button role="button" (click)="reload()" [disabled]="usersLoading" class="btn btn-info" title="reload"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+
+  <input #search class="form-control" style="width:400px" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+
+  <!--<select class="form-control" style="width:100px">
+    <option *ngFor="let pageLimit of pageLimits" [ngValue]="pageLimit" (ngModelChange)="setPaging(1, 10)">{{ pageLimit }}</option>
+  </select>-->
+
+  <button role="button" (click)="setPaging(1, 5)" class="btn btn-info">5</button>
+  <button role="button" (click)="setPaging(1, 10)" class="btn btn-info">10</button>
+  <button role="button" (click)="setPaging(1, 15)" class="btn btn-info">15</button>
+</div>
+
+<!--<app-spinner *ngIf="usersLoading"></app-spinner>-->
+
+<!--<table class="table">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Role</th>
+    <th>Enabled</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of usersContainer?.users?.rows">
+    <th scope="row">{{ user.id }}</th>
+    <td>{{ user.login }}</td>
+    <td>{{ user.role }}</td>
+    <td><i [ngClass]="user.enabled | boolean"></i></td>
+    <td>
+      <a (click)="addEditUser(user)" role="button" title="common.edit"><i class="btn btn-info fa fa-pencil-square-o" aria-hidden="true"></i></a>
+      <a (click)="deleteUser(user)" role="button" title="common.delete"><i class="btn btn-danger fa fa-trash" aria-hidden="true"></i></a>
+    </td>
+  </tr>
+  </tbody>
+</table>-->
+
+<ng2-smart-table
+  class="table table-striped"
+  [settings]="settings"
+  [source]="source"
+  (create)="onAddEdit($event)"
+  (edit)="onAddEdit($event)"
+  (delete)="onDelete($event)">
+</ng2-smart-table>
+
+<!--<pre class="card card-block card-header">{{ source.sortConf | json }}</pre>-->
+
+<div class="modal-footer"></div>
