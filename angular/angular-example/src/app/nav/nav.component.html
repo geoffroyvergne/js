@@ -1,0 +1,111 @@
+<mat-sidenav-container>
+  <mat-sidenav  #sidenav role="navigation">
+    <mat-nav-list>
+      <a mat-list-item
+         *ngIf="!auth.isAuthenticated()"
+         (click)="auth.login()">
+        <mat-icon class="icon">input</mat-icon>
+        <span class="label">Login</span>
+      </a>
+      <a mat-list-item
+         *ngIf="auth.isAuthenticated()"
+         routerLink="/">
+        <mat-icon class="icon">home</mat-icon>
+        <span class="label">Home</span>
+      </a>
+      <a mat-list-item
+         routerLink="/dashboard">
+        <mat-icon class="icon">dashboard</mat-icon>
+        <span class="label">Dashboard</span>
+      </a>
+      <a  mat-list-item
+          *ngIf="auth.isAuthenticated()"
+          (click)="auth.logout()" type="button">
+        <mat-icon class="icon">input</mat-icon>
+        <span class="label">LogOut</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div>
+        <a routerLink="/">
+          Angular Example
+        </a>
+      </div>
+
+
+      <div>
+        <a mat-button routerLink="/home">Home</a>
+        <a mat-button routerLink="/test">Test</a>
+        <a mat-button routerLink="/debug">Debug</a>
+        <!--<a *ngIf="auth.isAuthenticated()" mat-button routerLink="/dashboard">Dashboard</a>-->
+      </div>
+
+      <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
+        <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+          <li>
+            <a *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
+              <mat-icon class="icon">input</mat-icon>
+              &nbsp;
+              <span  class="label">Login</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/">
+              <mat-icon class="icon">home</mat-icon>
+              &nbsp;
+              <span class="label">Home</span>
+            </a>
+          </li>
+          <li>
+            <a *ngIf="auth.isAuthenticated()" routerLink="/dashboard">
+              <mat-icon class="icon">dashboard</mat-icon>
+              &nbsp;
+              <span class="label">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a *ngIf="auth.isAuthenticated()" (click)="auth.logout()" type="button">
+              <mat-icon class="icon">input</mat-icon>
+              &nbsp;
+              <span class="label">LogOut</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <!--<main>
+      <router-outlet></router-outlet>
+    </main>-->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Angular example</span>
+
+    <div>
+      <a mat-button routerLink="/home">Home</a>
+      <a mat-button routerLink="/test">Test</a>
+      <a mat-button routerLink="/debug">Debug</a>
+      <a mat-button routerLink="/dashboard">Dashboard</a>
+    </div>
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>-->
