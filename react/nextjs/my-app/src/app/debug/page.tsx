@@ -7,18 +7,21 @@ import { ResponseData } from '../models';
 export default function Debug() {
     const [echo, setEcho] = useState<ResponseData>()    
     const [ping, setPing] = useState<ResponseData>()    
+    let loader = false;
 
     const callAPI = async (url: string, fn: Dispatch<SetStateAction<null>>) => {
+        loader = true;
         fetch(url)
         .then(response => response.json())
         .then(data => {
             //console.log(data)
-            fn(data)
+            fn(data);
+            loader = false;
         });
     }
 
     return (
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="flex min-h-full flex-1 flex-col px-6 py-6 lg:px-8">
             <h1>Debug</h1>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -27,6 +30,8 @@ export default function Debug() {
                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Echo
                 </Button>
+                {loader &&
+                    <p>Loading...</p>}
                 {echo &&
                     <><p className="text-sm font-semibold text-gray-900">Code : {echo?.code} | Message : {echo?.message}</p>
                     <br/>
@@ -41,6 +46,8 @@ export default function Debug() {
                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Ping
                 </Button>
+                {loader &&
+                    <p>Loading...</p>}
                 {ping &&
                     <><p className="text-sm font-semibold text-gray-900">Code : {ping?.code} | Message : {ping?.message}</p>
                     <br/>
